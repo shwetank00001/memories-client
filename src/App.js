@@ -4,15 +4,19 @@ import memories from './images/memories.jpg'
 import Posts from './components/Posts/Posts'
 import Form from './components/Form/Form'
 
+import useStyles from './styles'
+
 // typography this typo is for assigning the tags 
 
 
 function App() {
+  const classes = useStyles()
+
   return (
     <Container maxWidth="lg">
-      <AppBar position='static' color='inherit'>
-        <Typography variant='h3' align='center'> Social Activity</Typography>  
-        <img src={memories} alt='memories' height="100"/>
+      <AppBar className={classes.appBar} position='static' color='inherit'>
+        <Typography className={classes.heading} variant='h3' align='center'> Social Activity</Typography>  
+        <img className={classes.image} src={memories} alt='memories' height="100"/>
       </AppBar>
 
       <Grow in>
