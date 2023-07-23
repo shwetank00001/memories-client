@@ -12,7 +12,8 @@ const Post = ({post}) => {
 
   return (
     <Card className='classes.card' >
-      <CardMedia className='classes.media' image={post.selectedFile} title={post.title} />
+      <CardMedia className='classes.media'  image="https://picsum.photos/400/300"
+    alt="CardMedia Image Example" title={post.title} />
       <div className='classes.overlay'>
         <Typography variant='h6'>{post.creator}</Typography>
         <Typography variant='body2'>{ moment(post.createdAt).fromNow() }</Typography>
@@ -20,7 +21,7 @@ const Post = ({post}) => {
 
       <div className='classes.overlay'>
         <Button style={{color:"white"}} size='small' onClick={ () => {} }>
-          <MoreHorizIcon fontSize='default' />
+          <MoreHorizIcon fontSize='medium' />
         </Button>
       </div>
 
