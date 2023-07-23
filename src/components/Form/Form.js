@@ -66,7 +66,7 @@ const Form = () => {
           variant='outlined' 
           label="tags" 
           fullWidth
-          value={postData.Tags}
+          value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
 
@@ -76,10 +76,11 @@ const Form = () => {
             multiple={false}
             onDone={ ( {base64} ) => setPostData({ ...postData, selectedFile: base64 }) }
           />
-
         </div>
+
         <Button className='classes.buttonSubmit' variant="contained" color="primary" size= "large" type="submit" fullWidth>Submit</Button>
         <Button  variant="contained" color="secondary" size= "small" onClick={clear}  fullWidth>Clear</Button>
+
       </form>
 
     </Paper>

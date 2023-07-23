@@ -12,3 +12,4 @@ export default function reducer( posts = [], action ){
             return posts
     }
 }
+
