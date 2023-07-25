@@ -10,7 +10,7 @@ import { createPost, updatePost } from '../../actions/posts'
 
 const Form = ({ currentID, setCurrentID }) => {
 
-  const classes = useStyles()
+
   const [ postData, setPostData ] = React.useState({
     creator : "",
     title : "",
@@ -18,29 +18,42 @@ const Form = ({ currentID, setCurrentID }) => {
     tags: "",
     selectedFile : ""
   })
-
-  const posts = useSelector(( state ) => state.posts)
-
+  const post = useSelector(( state ) => currentID ? state.posts.find(( item ) => item._id === currentID): null)
+  const classes = useStyles()
   const dispatch = useDispatch()
+
+  React.useEffect( () => {
+    if(post){
+      setPostData(post)
+    }
+  },[post])
 
   function handleSubmit(e){
     e.preventDefault()
-
     if(currentID){
       dispatch(updatePost(currentID, postData))
     }else{
       dispatch(createPost(postData))
     }
+
+    clear()
   }
 
   function clear(){
-    setPostData('')
+    setCurrentID = null
+    setPostData({
+      creator : "",
+      title : "",
+      message: "",
+      tags: "",
+      selectedFile : ""
+    })
   }
   
   return (
     <Paper className='classes.paper'>
       <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant='h6'>Create a Post</Typography>
+        <Typography variant='h6'>{currentID? "Update" : "Create"} a Post</Typography>
 
         <TextField 
           name='creator' 

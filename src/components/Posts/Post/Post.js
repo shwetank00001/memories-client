@@ -15,10 +15,11 @@ const Post = ({ post, setCurrentID }) => {
 
   return (
     <Card className='classes.card' >
-      <CardMedia className='classes.media'  image={post.selectedFile} alt="CardMedia Image Example" title={post.title} />
+      <CardMedia className='classes.media'  alt="CardMedia Image Example" title={post.title} />
       <div className='classes.overlay'>
         <Typography variant='h6'>{post.creator}</Typography>
         <Typography variant='body2'>{ moment(post.createdAt).fromNow() }</Typography>
+        <img src={post.selectedFile} width="100%"/>
       </div>
 
       <div className='classes.overlay'>
@@ -33,20 +34,18 @@ const Post = ({ post, setCurrentID }) => {
       <div className='classes.details'>
       <Typography variant='body2' color='textSecondary'>{post.tags.map( (item) => `#${item} `)}</Typography>
       </div>
-
+        <Typography className='classes.Title' variant='h5' gutterBottom>{post.title}</Typography>
       <CardContent> 
-        <Typography className='classes.Title' variant='h5' gutterBottom>{post.message}</Typography>
+        <Typography variant='h5' gutterBottom>{post.message}</Typography>
       </CardContent>
 
       <CardActions className='classes.cardActions'>
         <Button size='small' color='primary' onClick={ () => {} }>
           <ThumbUpAltIcon  fontSize='small'/>
-          Like
-          {post.likeCount}
+           {post.likeCount}
         </Button>
         <Button size='small' color='primary' onClick={ () => {} }>
           <DeleteIcon  fontSize='small'/>
-          Delete
         </Button>
 
       </CardActions>
