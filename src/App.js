@@ -5,13 +5,15 @@ import Posts from './components/Posts/Posts'
 import Form from './components/Form/Form'
 import { useDispatch } from 'react-redux'
 
-import {getPosts } from './actions/posts'
+import {getPosts } from './actions/posts' 
 import useStyles from './styles'
 
 // typography this typo is for assigning the tags 
 
 
 function App() {
+
+  const [ currentID, setCurrentID ] = React.useState(null)
   const classes = useStyles()
   const dispatch = useDispatch()
 
@@ -32,11 +34,11 @@ function App() {
           <Grid container justifyContent='space-between' alignItems='stretch' spacing="3">
             
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Posts setCurrentID={ setCurrentID } />
             </Grid>
 
             <Grid item xs={12} sm={4}>
-              <Form />
+              <Form currentID = { currentID } setCurrentID={ setCurrentID } />
             </Grid>
 
           </Grid>

@@ -1,6 +1,6 @@
 import * as api from '../api'
 
-// Actions
+// Actions- > they are functions that return an action and action is just an object that has a type and a payload
 
 // redux thunk ->>> we use thunk when we work with async data and sometime has to pass. it allows us to specify an aditional arrow function, crazy syntax
 
@@ -8,16 +8,25 @@ export const getPosts = () => async(dispatch) => {
 
     try {
         const { data } = await api.fetchPosts()    
-        dispatch({ type:"FETCH_ALL" , paylaod: data })     
+        dispatch({ type:"FETCH_ALL" , payload: data })     
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
+export const createPost = (newPost) => async(dispatch) => {
+    try {
+        const {data} = await api.createPost(newPost)
+        dispatch({ type: "CREATE", payload: data })
     } catch (error) {
         console.log(error)
     }
 }
 
-export const createPost = (newPost) => async(dispatch) => {
+export const updatePost = ( id, post ) => async(dispatch) => {
     try {
-        const {data} = await api.createPost(newPost)
-        dispatch({ type: "CREATE", paylaod: data })
+        const {res} = await api.updatePost(id, post)
+        dispatch({ type: "UPDATE", payload: res})
     } catch (error) {
         console.log(error)
     }

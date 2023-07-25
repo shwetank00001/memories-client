@@ -10,7 +10,7 @@ import  thunk  from 'redux-thunk'
 import reducer from './reducer'
 
 const store = createStore(reducer, compose(applyMiddleware(thunk)))
-
+// provider allows us to access the global state ( STORE ) that can be accessed anywhere
 ReactDOM.render(
   <Provider store={store}>
     <App />

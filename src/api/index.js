@@ -14,3 +14,5 @@ export const createPost = (newPost) => (dispatch) => {
     })
 
   }
+
+  export const updatePost = ( id, updatedPost ) => axios.patch( `${url}/${id}`, updatedPost)
