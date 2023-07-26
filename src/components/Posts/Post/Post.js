@@ -6,7 +6,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { likePost, deletePost } from '../../../actions/posts';
+import { likePost, deletePost, updatePost } from '../../../actions/posts';
 import useStyles from './style';
 
 const Post = ({ post, setCurrentId }) => {
@@ -21,7 +21,7 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /></Button>
+        <Button style={{ color: 'white' }} size="small" onClick={() => dispatch(updatePost(post._id))}><MoreHorizIcon fontSize="default" /></Button>
       </div>
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
