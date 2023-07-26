@@ -10,9 +10,12 @@ export default function reducer( state = [], action ){
             return [...state, action.payload]
 
         case "UPDATE":
-            return state.map(()=> 
-                state._id === action.payload
-               ? action.payload : state
+            return state.map((post)=> 
+                post._id === action.payload ? action.payload : post
+            )
+        case "LIKE":
+            return state.map((post)=> 
+                post._id === action.payload ? action.payload : post
             )
 
         case "DELETE":
