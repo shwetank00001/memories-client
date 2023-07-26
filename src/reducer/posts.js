@@ -14,6 +14,9 @@ export default function reducer( state = [], action ){
                ? action.payload : state
             )
 
+        case "DELETE":
+            return state.filter((item) => item._id !== action.payload)
+
         default:
             return state
     }
