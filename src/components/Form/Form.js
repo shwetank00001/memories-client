@@ -23,9 +23,8 @@ const Form = ({ currentID, setCurrentID }) => {
   const dispatch = useDispatch()
 
   React.useEffect( () => {
-    if(post){
-      setPostData(post)
-    }
+    if(post) setPostData(post)
+    
   },[post])
 
   function handleSubmit(e){

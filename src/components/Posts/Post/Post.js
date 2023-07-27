@@ -10,6 +10,7 @@ import { likePost, deletePost, updatePost } from '../../../actions/posts';
 import useStyles from './style';
 
 const Post = ({ post, setCurrentId }) => {
+  
   const dispatch = useDispatch();
   const classes = useStyles();
 
