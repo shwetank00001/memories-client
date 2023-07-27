@@ -14,10 +14,7 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  function updatingPost(){
-    dispatch(updatePost(post._id))
-    console.log(setCurrentId)
-  }
+
 
   return (
     <Card className={classes.card}>
@@ -30,7 +27,11 @@ const Post = ({ post, setCurrentId }) => {
       </div>
 
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => updatingPost()}><MoreHorizIcon fontSize="medium" /></Button>
+        <Button style={{ color: 'white' }} 
+          size="small" 
+          onClick={() => setCurrentId(post._id)}>
+          <MoreHorizIcon fontSize="medium" />
+        </Button>
       </div>
 
       <div className={classes.details}>

@@ -19,7 +19,7 @@ function App() {
 
 
   useEffect(()=>{
-    dispatch(getPosts())
+    dispatch(getPosts())  
   }, [ currentID , dispatch ])
 
   return (
