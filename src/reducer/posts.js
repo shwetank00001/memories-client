@@ -1,7 +1,7 @@
 // in reducers states need to be equal to something
 
 
-export default function reducer( state = [], action ){
+export default function( state = [], action ){
     switch(action.type){
         case 'FETCH_ALL':
             return action.payload
