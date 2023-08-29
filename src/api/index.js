@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const url = 'http://localhost:5000/posts'
+const url = 'https://social-app-server-shwetank-dliq.onrender.com/posts'
+
 
 export const getPosts = () => axios.get(url)
 
