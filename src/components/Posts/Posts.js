@@ -5,7 +5,7 @@ import './Posts.css'
 
 import { Grid , CircularProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux'
-
+import BarLoader from "react-spinners/BarLoader";
 
 // useSelector and useDispatch are a set of hooks to use as alternatives to the existing connect() higher-order component. 
 // The equivalent of map state to props is useSelector. It takes in a function argument that returns the part of the state that you want. T
@@ -19,8 +19,10 @@ const Posts = ({ setCurrentID }) => {
   return (
     !posts.length ? 
     <div>
-      <CircularProgress /> 
+      <BarLoader color='white' /> 
+
       <h3>Please wait till we get the data for you..</h3>
+      <BarLoader color='white' /> 
     </div>
  : (
       <Grid className='classes.container' container alignItems='stretch' spacing={3}>
